@@ -1,5 +1,36 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+# Apple iPhone Clone
+
+Frontend-only recreation of Apple’s iPhone product page using **Next.js**, **Tailwind CSS**, and **Framer Motion**.  
+This project focuses on Apple-level UI polish, responsive layouts, and scroll-based animations.
+
+---
+
+## 🚀 Features
+- Pixel-perfect recreation of Apple’s iPhone product page
+- Responsive design for desktop, tablet, and mobile
+- Smooth scroll-based animations powered by Framer Motion
+- Clean and maintainable code structure with Next.js
+- Styled with Tailwind CSS for rapid UI development
+
+---
+
+## 🛠️ Tech Stack
+- [Next.js](https://nextjs.org/) – React framework for production
+- [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework
+- [Framer Motion](https://www.framer.com/motion/) – Animation library for React
+
+---
+
+## 📦 Installation & Setup
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/jfgarcia0911/apple-iphone-clone.git
+cd apple-iphone-clone
+npm install
 ## Getting Started
 
 First, run the development server:
