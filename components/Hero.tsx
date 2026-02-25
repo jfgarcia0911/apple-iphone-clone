@@ -2,142 +2,128 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Playfair_Display } from "next/font/google";
-const playfair = Playfair_Display({ subsets: ["latin"] });
+import ProductHero from "./ProductHero";
+
 export default function Hero() {
 	return (
 		<main>
-      {/* iPhone Section */}
-			<section className="relative flex h-[500px]  md:h-[620px] flex-col items-center  text-white ">
-				{/* Headline */}
-				<motion.h1
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.8 }}
-					className="text-4xl md:text-5xl font-semibold   text-gray-900"
-				>
-					iPhone
-				</motion.h1>
+			{/* iPhone Section */}
+			<ProductHero
+				title="iPhone"
+				subtitle="Say hello to the latest generation of iPhone."
+				imageDesktop="/iphone2.png"
+				imageMobile="/iphone2.png"
+				imageClassNameDesktop="h-150  md:w-162"
+				imageClassNameMobile="h-70 w-55"
+				buttonLeftText="Learn more"
+				buttonRightText="Shop iPhone"
+				backgroundColor="bg-gray-100"
+				sectionHeight="h-162"
+			/>
+			{/* iPad air Section */}
+			<ProductHero
+				title={
+					<>
+						iPad <span className="italic text-blue-600 ">air</span>
+					</>
+				}
+				subtitle="Now supercharged by the M3 chip."
+				imageDesktop="/ipadAir.png"
+				imageMobile="/ipadAir2.png"
+				imageClassNameDesktop="h-86 w-137"
+				imageClassNameMobile="h-60 w-55"
+				buttonLeftText="Learn more"
+				buttonRightText="Buy"
+				backgroundColor="bg-linear-to-b from-blue-400/80 via-blue-400/30 to-gray-100"
+				sectionHeight="h-162"
+			/>
+			{/* MacBook Section */}
+			<ProductHero
+				title='MacBook Pro 14"'
+				subtitle="Supercharged by M5."
+				imageDesktop="/macbookPro.png"
+				imageMobile="/macbookPro.png"
+				imageClassNameDesktop="h-100 w-200"
+				imageClassNameMobile="h-88 w-160 -translate-y-13"
+				buttonLeftText="Learn more"
+				buttonRightText="Buy"
+				backgroundColor="bg-black"
+				sectionHeight="h-162"
+				dark={true}
+			/>
 
-				{/* Subheadline */}
-				<motion.p
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.8, delay: 0.15 }}
-					className="mt-1 text-center  max-w-[12rem] md:max-w-xl  text-lg md:text-2xl  text-gray-900 leading-tight"
-				>
-					Say hello to the latest generation of iPhone.
-				</motion.p>
+			<div className="md:flex gap-3 w-full ">
+				<ProductHero
+					title={
+						<h1 className="flex items-center gap-1 text-xl md:text-2xl lg:text-4xl font-bold">
+							<Image
+								src="/apple-logo.png"
+								alt="Apple Watch Series 11 Ultra"
+								width={200}
+								height={200}
+								className="h-6 lg:h-10 w-6 lg:w-10 mx-auto"
+							/>
+							WATCH <span className="font-normal ml-2">SERIES 11</span>
+						</h1>
+					}
+					subtitle={
+            <p className="text-xl">
+              The ultimate way to watch your health.
+            </p>
+          }
+					imageDesktop="/watch-series11.png"
+					imageMobile="/watch-series11.png"
+					imageClassNameDesktop="md:w-120 lg:w-200 scale-130 translate-y-10"
+					imageClassNameMobile="w-140 translate-y-14 scale-120"
+					buttonLeftText="Learn more"
+					buttonRightText="Buy"
+					backgroundColor="bg-gray-100"
+					sectionHeight=" lg:h-150"
+				/>
+				<ProductHero
+					title={
+						<h1 className="flex items-center gap-1 text-xl md:text-2xl lg:text-4xl font-bold">
+							<Image
+								src="/apple-logo.png"
+								alt="Apple Watch Series 11 Ultra"
+								width={200}
+								height={200}
+								className="h-6 lg:h-10 w-6 lg:w-10 mx-auto filter invert"
+							/>
+							WATCH 
+						</h1>
+					}
+					subtitle={
+            <p className="text-xl leading-6">
+              The new Black Unity band. <br /> Inspired by the power of connection.
+            </p>
+          }
+					imageDesktop="/black-band.png"
+					imageMobile="/watch-series11.png"
+					imageClassNameDesktop="md:w-120 lg:w-200 rotate-310 translate-y-5"
+					imageClassNameMobile="w-140 translate-y-14 scale-120"
+					buttonLeftText="Shop"
+					buttonRightText="Buy"
+					backgroundColor="bg-black"
+					sectionHeight=" lg:h-150"
+				dark={true}
 
-				{/* CTA Buttons */}
-				<motion.div
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 0.3 }}
-					className="mt-4 flex gap-4"
-				>
-					<a
-						href="#"
-						className="rounded-full bg-blue-600 px-3 md:px-6 py-1 md:py-2 text-md md:text-lg  hover:bg-blue-500 transition"
-					>
-						Learn more
-					</a>
-					<a
-						href="#"
-						className="rounded-full border   text-blue-500 hover:bg-blue-600 hover:text-white transition px-3 md:px-6 py-1 md:py-2 text-md md:text-lg"
-					>
-						Shop iPhone
-					</a>
-				</motion.div>
+				/>
+			</div>
 
-				{/* Product Image */}
-				<motion.div
-					initial={{ opacity: 0, y: 40 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 1, delay: 0.4 }}
-					className="mt-3 w-full max-w-4xl h-[450px]  mx-auto relative overflow-hidden"
-				>
-					<Image
-						src="/iphone1.png"
-						alt="iPhone"
-						width={650}
-						height={600}
-						priority
-						className="h-[270px] md:h-[600px] w-[220px] md:w-[650px]  mx-auto"
-					/>
-				</motion.div>
-			</section>
-
-      {/* iPad air Section */}
-      <section className="relative flex h-[500px]  md:h-[620px] flex-col items-center  text-white bg-gradient-to-b from-blue-300/80 via-blue-400/30 to-white pt-7 md:pt-13">
-				{/* Headline */}
-				<motion.h1
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.8 }}
-					className="text-4xl md:text-5xl font-semibold   text-gray-900"
-				>
-					iPad  <span className="italic text-blue-600">air</span>
-				</motion.h1>
-
-				{/* Subheadline */}
-				<motion.p
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.8, delay: 0.15 }}
-					className="mt-1 text-center  max-w-[12rem] md:max-w-xl  text-lg md:text-2xl  text-gray-900 leading-tight"
-				>
-					Now supercharged by the M3 chip.
-				</motion.p>
-
-				{/* CTA Buttons */}
-				<motion.div
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 0.3 }}
-					className="mt-4 flex gap-4"
-				>
-					<a
-						href="#"
-						className="rounded-full bg-blue-600 px-3 md:px-6 py-1 md:py-2 text-md md:text-lg  hover:bg-blue-500 transition"
-					>
-						Learn more
-					</a>
-					<a
-						href="#"
-						className="rounded-full border   text-blue-500 hover:bg-blue-600 hover:text-white transition px-3 md:px-6 py-1 md:py-2 text-md md:text-lg"
-					>
-						Buy
-					</a>
-				</motion.div>
-
-				{/* Product Image */}
-				<motion.div
-					initial={{ opacity: 0, y: 40 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 1, delay: 0.4 }}
-					className="mt-3 w-full max-w-4xl h-[450px]  mx-auto relative overflow-hidden"
-				>
-					<Image
-						src="/ipadAir2.png"
-						alt="iPad Air 2"
-						width={550}
-						height={350}
-						priority
-						className="h-[240px] md:h-[350px] w-[220px] md:w-[550px]  mx-auto md:hidden "
-					/>
-          <Image
-						src="/ipadAir.png"
-						alt="iPad Air"
-						width={550}
-						height={350}
-						priority
-						className="h-[270px] md:h-[350px] w-[220px] md:w-[550px] hidden md:block  mx-auto"
-					/>
-				</motion.div>
-			</section>
-
-      
+			<ProductHero
+				title='MacBook Pro 14"'
+				subtitle="Supercharged by M5."
+				imageDesktop="/macbookPro.png"
+				imageMobile="/macbookPro.png"
+				imageClassNameDesktop="h-100 w-200"
+				imageClassNameMobile="h-88 w-160 -translate-y-13"
+				buttonLeftText="Learn more"
+				buttonRightText="Buy"
+				backgroundColor="bg-black"
+				sectionHeight="h-162"
+				dark={true}
+			/>
 		</main>
 	);
 }
