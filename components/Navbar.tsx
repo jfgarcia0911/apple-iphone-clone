@@ -82,11 +82,12 @@ export default function Navbar({ open, setOpen }: NavbarProps) {
 					</motion.div>
 				)}
 			</AnimatePresence>
+
+			{/* Navigation Items */}
 			<div className="fixed top-0 left-0 text-gray-800 z-48 bg-gray-100/90 w-full py-2.5">
-				<div className="flex items-center justify-between lg:justify-center gap-6 text-sm px-4">
+				<div className="flex items-center justify-between lg:justify-center gap-6  px-4">
 					<NavbarIcon src="/apple-logo.png" alt="Apple Logo" />
-					<div className="items-center justify-center gap-6 hidden lg:flex">
-						{/* Navigation Items */}
+					<div className="items-center justify-center gap-6 hidden lg:flex text-sm">
 						{navItems.map((item) => (
 							<div key={item} className="cursor-pointer hover:text-gray-900">
 								{item}{" "}

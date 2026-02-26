@@ -223,11 +223,7 @@ export default function Hero() {
 				/>
 			</div>
 
-			<div className="flex justify-center ">
-				<h1 className="text-3xl md:text-4xl font-bold">
-					Endless entertainment.
-				</h1>
-			</div>
+			
 		</main>
 	);
 }
