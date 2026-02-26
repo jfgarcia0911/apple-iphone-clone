@@ -9,7 +9,7 @@ type NavbarIconProps = {
 export default function NavbarIcon({src, alt}: NavbarIconProps) {
   return (
     <div>
-      <Image src={src} alt={alt} width={20} height={20} className="h-5 lg:h-4 w-5 lg:w-4" />
+      <Image src={src} alt={alt} width={20} height={20} className="h-5 lg:h-4 w-5 lg:w-4 cursor-pointer" />
     </div>
   )
 }
