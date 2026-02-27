@@ -6,7 +6,8 @@ const items = [
 	{
 		id: 1,
 		image: "/image1.png",
-		title: "Mystery",
+		mobileImage: "/mobileImage1.png",
+		genres: "Mystery",
 		description: "New season.",
 		alt: "The Last Thing He Told Me Series",
 		buttonText: "Stream now",
@@ -14,7 +15,8 @@ const items = [
 	{
 		id: 2,
 		image: "/image2.png",
-		title: "Comedy",
+		genres: "Comedy",
+		mobileImage: "/mobileImage2.png",
 		description: "Getting it together. Together.",
 		alt: "Shrinking Series",
 		buttonText: "Stream now",
@@ -22,7 +24,8 @@ const items = [
 	{
 		id: 3,
 		image: "/image3.png",
-		title: "Romance",
+		genres: "Romance",
+		mobileImage: "/mobileImage3.png",
 		description: "Do you believe in love after life?",
 		alt: "Eternity Movie",
 		buttonText: "Stream now",
@@ -30,15 +33,17 @@ const items = [
 	{
 		id: 4,
 		image: "/image4.png",
-		title: "",
+		genres: "",
 		description: "Watch every club, every match, live all season long.",
 		alt: "Major League Soccer",
+		mobileImage: "/mobileImage4.png",
 		buttonText: "MLS on Apple TV",
 	},
 	{
 		id: 5,
 		image: "/image5.png",
-		title: "Thriller",
+		genres: "Thriller",
+		mobileImage: "/mobileImage5.png",
 		description: "Who can you trust when it's a;; on the line?",
 		alt: "HiJack Movie",
 		buttonText: "Stream now",
@@ -46,7 +51,8 @@ const items = [
 	{
 		id: 6,
 		image: "/image6.png",
-		title: "Thriller",
+		mobileImage: "/mobileImage6.png",
+		genres: "Thriller",
 		description: "A secret agent embarks on her most dangerous mission yet.",
 		alt: "Tehran Movie",
 		buttonText: "Stream now",
@@ -54,7 +60,8 @@ const items = [
 	{
 		id: 7,
 		image: "/image7.png",
-		title: "Drama",
+		mobileImage: "/mobileImage7.png",
+		genres: "Drama",
 		description: "Happiness is a state of mind.",
 		alt: "Pluribus Movie",
 		buttonText: "Stream now",
@@ -62,7 +69,8 @@ const items = [
 	{
 		id: 8,
 		image: "/image8.png",
-		title: "Action",
+		mobileImage: "/mobileImage8.png",
+		genres: "Action",
 		description: "4 Oscar Nominations Including Best Picture",
 		alt: "F1 the Movie",
 		buttonText: "Stream now",
@@ -73,7 +81,7 @@ const miniItems = [
 	{
 		id: 1,
 		image: "/image1.png",
-		title: "Arcade",
+		genres: "Arcade",
 		description: "Hello Kitty Island Adventure",
 		alt: "Hello Kitty Island Adventure",
 		buttonText: "Play now",
@@ -246,8 +254,10 @@ export default function FeatureGrid() {
 	};
 
 	return (
-		<div className="relative w-full mb-100">
-      <h1>Endless entertainment</h1>
+		<div className="relative w-full mb-100 mt-20 ">
+			<h1 className="py-5 lg:py-10 text-4xl md:text-4xl lg:text-6xl font-semibold text-center">
+				Endless entertainment.
+			</h1>
 			{/* Main carousel (large images) */}
 			<div
 				ref={scrollRefMain}
@@ -257,27 +267,49 @@ export default function FeatureGrid() {
 				{duplicatedItems.map((item, idx) => (
 					<div
 						key={`${item.id}-${idx}`}
-						className="relative shrink-0 snap-center border border-red-500"
-						style={{ width: "688px" }}
+						className="relative shrink-0 snap-center w-69 md:w-172 lg:w-260 xl:w-350 text-lg lg:text-2xl"
 					>
 						<Image
 							src={item.image}
 							alt={item.alt}
 							width={688}
 							height={368}
-							className="h-95 w-full object-cover "
+							className=" md:h-92 lg:h-145 xl:h-185 w-full object-cover hidden md:block  "
 						/>
-						<div className="absolute top-80 left-10">
+						<Image
+							src={item.mobileImage}
+							alt={item.alt}
+							width={274}
+							height={496}
+							className="h-124 md:h-92 lg:h-145 xl:h-185 w-full object-cover block md:hidden  "
+						/>
+						<div className="absolute md:top-75 lg:top-121 xl:top-155 left-10 lg:left-15 xl:left-20 hidden md:block">
 							<div className="flex gap-2 items-center">
-								<button className="text-gray-900 bg-white px-4 py-1 rounded-full mt-2">
+								<button className="text-gray-900 bg-white px-4 lg:px-6  py-1 md:py-2 rounded-full mt-2 md:text-sm lg:text-lg xl:text-xl lg:font-semibold mr-2">
 									{item.buttonText}
 								</button>
-								<h2 className="text-lg font-semibold text-white mt-2">
-									{item.title} &#8226;
+								<h2 className=" font-semibold text-white mt-2">
+									{item.genres} &#8226;
 								</h2>
-								<p className="text-lg text-white mt-2">{item.description}</p>
+								<p className=" text-white mt-2">{item.description}</p>
 							</div>
 						</div>
+
+						<div className="absolute top-8 left-1/2 transform -translate-x-1/2  block md:hidden">
+							<div className="flex text-white text-3xl font-semibold items-center justify-center">
+								<Image
+									src="/apple-logo.png"
+									alt="Apple Logo"
+									width={274}
+									height={496}
+									className="w-auto h-6 object-contain filter invert"
+								/>
+								<h2>tv</h2>
+							</div>
+              <h1 className="text-white leading-6 text-center text-2xl w-53 font-semibold">THE LAST THING HE TOLD ME</h1>
+							
+						</div>
+            
 					</div>
 				))}
 			</div>
@@ -307,7 +339,7 @@ export default function FeatureGrid() {
 									{item.buttonText}
 								</button>
 								<h2 className="text-lg font-semibold text-white mt-2">
-									{item.title} &#8226;
+									{item.genres} &#8226;
 								</h2>
 								<p className="text-lg text-white mt-2">{item.description}</p>
 							</div>
