@@ -1,10 +1,12 @@
 "use client";
 import Image from "next/image";
+import { title } from "process";
 import { useEffect, useRef, useState } from "react";
 
 const items = [
 	{
 		id: 1,
+		title: "THE LAST THING HE TOLD ME",
 		image: "/image1.png",
 		mobileImage: "/mobileImage1.png",
 		genres: "Mystery",
@@ -14,6 +16,7 @@ const items = [
 	},
 	{
 		id: 2,
+		title: "SHRINKING",
 		image: "/image2.png",
 		genres: "Comedy",
 		mobileImage: "/mobileImage2.png",
@@ -23,6 +26,7 @@ const items = [
 	},
 	{
 		id: 3,
+		title: "Eternity",
 		image: "/image3.png",
 		genres: "Romance",
 		mobileImage: "/mobileImage3.png",
@@ -32,6 +36,7 @@ const items = [
 	},
 	{
 		id: 4,
+		title: "MLS",
 		image: "/image4.png",
 		genres: "",
 		description: "Watch every club, every match, live all season long.",
@@ -41,15 +46,17 @@ const items = [
 	},
 	{
 		id: 5,
+		title: "HIJACK",
 		image: "/image5.png",
 		genres: "Thriller",
 		mobileImage: "/mobileImage5.png",
-		description: "Who can you trust when it's a;; on the line?",
+		description: "Who can you trust when it's all on the line?",
 		alt: "HiJack Movie",
 		buttonText: "Stream now",
 	},
 	{
 		id: 6,
+		title: "TEHRAN",
 		image: "/image6.png",
 		mobileImage: "/mobileImage6.png",
 		genres: "Thriller",
@@ -59,6 +66,7 @@ const items = [
 	},
 	{
 		id: 7,
+		title: "PLURIBUS",
 		image: "/image7.png",
 		mobileImage: "/mobileImage7.png",
 		genres: "Drama",
@@ -68,6 +76,7 @@ const items = [
 	},
 	{
 		id: 8,
+		title: "F1 THE MOVIE",
 		image: "/image8.png",
 		mobileImage: "/mobileImage8.png",
 		genres: "Action",
@@ -283,6 +292,7 @@ export default function FeatureGrid() {
 							height={496}
 							className="h-124 md:h-92 lg:h-145 xl:h-185 w-full object-cover block md:hidden  "
 						/>
+						{/* Desktop content */}
 						<div className="absolute md:top-75 lg:top-121 xl:top-155 left-10 lg:left-15 xl:left-20 hidden md:block">
 							<div className="flex gap-2 items-center">
 								<button className="text-gray-900 bg-white px-4 lg:px-6  py-1 md:py-2 rounded-full mt-2 md:text-sm lg:text-lg xl:text-xl lg:font-semibold mr-2">
@@ -294,22 +304,33 @@ export default function FeatureGrid() {
 								<p className=" text-white mt-2">{item.description}</p>
 							</div>
 						</div>
-
-						<div className="absolute top-8 left-1/2 transform -translate-x-1/2  block md:hidden">
-							<div className="flex text-white text-3xl font-semibold items-center justify-center">
-								<Image
-									src="/apple-logo.png"
-									alt="Apple Logo"
-									width={274}
-									height={496}
-									className="w-auto h-6 object-contain filter invert"
-								/>
-								<h2>tv</h2>
+						{/* Mobile content  */}
+						<div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col h-full py-3 justify-between md:hidden">
+							<div>
+								<div className="flex text-white text-3xl font-semibold items-center justify-center">
+									<Image
+										src="/apple-logo.png"
+										alt="Apple Logo"
+										width={274}
+										height={496}
+										className="w-auto h-6 object-contain filter invert"
+									/>
+									<h2>tv</h2>
+								</div>
+								<h1 className="text-white leading-6 text-center text-2xl w-53 font-semibold">
+									{item.title}
+								</h1>
 							</div>
-              <h1 className="text-white leading-6 text-center text-2xl w-53 font-semibold">THE LAST THING HE TOLD ME</h1>
-							
+							<div className="flex flex-col items-center">
+								<h2 className="text-white text-center font-semibold ">
+									{item.genres}
+								</h2>
+								<p className="text-white text-center leading-tight">{item.description}</p>
+								<button className=" text-gray-900 bg-white px-4 py-2 rounded-full mt-2 text-sm lg:font-semibold ">
+									{item.buttonText}
+								</button>
+							</div>
 						</div>
-            
 					</div>
 				))}
 			</div>
