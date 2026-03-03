@@ -9,7 +9,7 @@ const items = [
 		title: "THE LAST THING HE TOLD ME",
 		image: "/image1.png",
 		mobileImage: "/mobileImage1.png",
-		genres: "Mystery",
+		genre: "Mystery",
 		description: "New season.",
 		alt: "The Last Thing He Told Me Series",
 		buttonText: "Stream now",
@@ -18,7 +18,7 @@ const items = [
 		id: 2,
 		title: "SHRINKING",
 		image: "/image2.png",
-		genres: "Comedy",
+		genre: "Comedy",
 		mobileImage: "/mobileImage2.png",
 		description: "Getting it together. Together.",
 		alt: "Shrinking Series",
@@ -28,7 +28,7 @@ const items = [
 		id: 3,
 		title: "Eternity",
 		image: "/image3.png",
-		genres: "Romance",
+		genre: "Romance",
 		mobileImage: "/mobileImage3.png",
 		description: "Do you believe in love after life?",
 		alt: "Eternity Movie",
@@ -38,7 +38,7 @@ const items = [
 		id: 4,
 		title: "MLS",
 		image: "/image4.png",
-		genres: "",
+		genre: "",
 		description: "Watch every club, every match, live all season long.",
 		alt: "Major League Soccer",
 		mobileImage: "/mobileImage4.png",
@@ -48,7 +48,7 @@ const items = [
 		id: 5,
 		title: "HIJACK",
 		image: "/image5.png",
-		genres: "Thriller",
+		genre: "Thriller",
 		mobileImage: "/mobileImage5.png",
 		description: "Who can you trust when it's all on the line?",
 		alt: "HiJack Movie",
@@ -59,7 +59,7 @@ const items = [
 		title: "TEHRAN",
 		image: "/image6.png",
 		mobileImage: "/mobileImage6.png",
-		genres: "Thriller",
+		genre: "Thriller",
 		description: "A secret agent embarks on her most dangerous mission yet.",
 		alt: "Tehran Movie",
 		buttonText: "Stream now",
@@ -69,7 +69,7 @@ const items = [
 		title: "PLURIBUS",
 		image: "/image7.png",
 		mobileImage: "/mobileImage7.png",
-		genres: "Drama",
+		genre: "Drama",
 		description: "Happiness is a state of mind.",
 		alt: "Pluribus Movie",
 		buttonText: "Stream now",
@@ -79,7 +79,7 @@ const items = [
 		title: "F1 THE MOVIE",
 		image: "/image8.png",
 		mobileImage: "/mobileImage8.png",
-		genres: "Action",
+		genre: "Action",
 		description: "4 Oscar Nominations Including Best Picture",
 		alt: "F1 the Movie",
 		buttonText: "Stream now",
@@ -90,31 +90,39 @@ const miniItems = [
 	{
 		id: 1,
 		image: "/image1.png",
-		genres: "Arcade",
-		description: "Hello Kitty Island Adventure",
+		mobileMiniImage: "/mobileMiniImage1.jpg",
+		title: "Hello Kitty Island Adventure",
+		genre: "Arcade",
+		description: "",
 		alt: "Hello Kitty Island Adventure",
 		buttonText: "Play now",
 	},
 	{
 		id: 2,
 		image: "/image2.png",
-		title: "Music",
-		description: "Sabrina Carpenter: The Zane Lowe...",
-		alt: "Sabrina Carpenter: The Zane Lowe...",
+		mobileMiniImage: "/miniImage2.jpg",
+		title: "Sabrina Carpenter: The Zane Lowe Interview",
+		genre: "Music",
+		description: "",
+		alt: "Sabrina Carpenter: The Zane Lowe Interview",
 		buttonText: "Listen now",
 	},
 	{
 		id: 3,
 		image: "/image3.png",
-		title: "Fitness+",
-		description: "Bad Bunny",
+		mobileMiniImage: "/mobileMiniImage3.jpg",
+		title: "Bad Bunny+",
+		genre: "Fitness+",
+		description: "",
 		alt: "Bad Bunny",
 		buttonText: "Watch now",
 	},
 	{
 		id: 4,
 		image: "/image4.png",
-		title: "Arcade",
+		mobileMiniImage: "/mobileMiniImage4.jpg",
+		title: "PowerWash Simulator",
+		genre: "Arcade",
 		description: "PowerWash Simulator",
 		alt: "PowerWash Simulator",
 		buttonText: "Play now",
@@ -122,23 +130,29 @@ const miniItems = [
 	{
 		id: 5,
 		image: "/image5.png",
-		title: "Music",
-		description: "A-List Pop",
+		mobileMiniImage: "/miniImage5.jpg",
+		title: "A-List Pop",
+		genre: "Music",
+		description: "",
 		alt: "A-List Pop",
 		buttonText: "Listen now",
 	},
 	{
 		id: 6,
 		image: "/image6.png",
-		title: "Fitness+",
-		description: "Core with Gregg",
+		mobileMiniImage: "/mobileMiniImage6.jpg",
+		title: "Core with Gregg+",
+		genre: "Fitness+",
+		description: "",
 		alt: "Core with Gregg",
 		buttonText: "Watch now",
 	},
 	{
 		id: 7,
 		image: "/image7.png",
-		title: "Arcade",
+		mobileMiniImage: "/mobileMiniImage7.jpg",
+		title: "SpongeBob: Party Pursuit 2",
+		genre: "Arcade",
 		description: "SpongeBob: Party Pursuit 2",
 		alt: "SpongeBob: Party Pursuit 2",
 		buttonText: "Play now",
@@ -146,10 +160,12 @@ const miniItems = [
 	{
 		id: 8,
 		image: "/image8.png",
-		title: "Music",
-		description: "New Music Daily",
-		alt: "New Music Daily",
-		buttonText: "Listen now",
+		mobileMiniImage: "/mobileMiniImage8.jpg",
+		title: "Black History Month",
+		genre: "Fitness+",
+		description: "",
+		alt: "Black History Month",
+		buttonText: "Watch now",
 	},
 ];
 
@@ -299,7 +315,7 @@ export default function FeatureGrid() {
 									{item.buttonText}
 								</button>
 								<h2 className=" font-semibold text-white mt-2">
-									{item.genres} &#8226;
+									{item.genre} &#8226;
 								</h2>
 								<p className=" text-white mt-2">{item.description}</p>
 							</div>
@@ -323,9 +339,11 @@ export default function FeatureGrid() {
 							</div>
 							<div className="flex flex-col items-center">
 								<h2 className="text-white text-center font-semibold ">
-									{item.genres}
+									{item.genre}
 								</h2>
-								<p className="text-white text-center leading-tight">{item.description}</p>
+								<p className="text-white text-center leading-tight">
+									{item.description}
+								</p>
 								<button className=" text-gray-900 bg-white px-4 py-2 rounded-full mt-2 text-sm lg:font-semibold ">
 									{item.buttonText}
 								</button>
@@ -344,25 +362,43 @@ export default function FeatureGrid() {
 				{miniDuplicatedItems.map((item, idx) => (
 					<div
 						key={`${item.id}-${idx}`}
-						className="relative shrink-0 snap-center"
+						className={`relative shrink-0 snap-center  ${item.mobileMiniImage.includes("miniImage5.jpg")? "bg-pink-500/80" : "bg-black"}`}
 						style={{ width: "190px" }}
 					>
 						<Image
-							src={item.image}
+							src={item.mobileMiniImage}
 							alt={item.alt}
 							width={688}
 							height={368}
-							className="h-63 w-full object-cover mt-5"
+							className={` w-full object-cover  ${
+								item.mobileMiniImage.includes("miniImage2.jpg") ||
+								item.mobileMiniImage.includes("miniImage5.jpg")
+									? "scale-60 rounded-xl"
+									: "h-63"
+							} `}
 						/>
-						<div className="absolute top-40 left-10">
-							<div className="flex gap-2 items-center">
-								<button className="text-gray-900 bg-white px-4 py-1 rounded-full mt-2">
-									{item.buttonText}
-								</button>
-								<h2 className="text-lg font-semibold text-white mt-2">
-									{item.genres} &#8226;
-								</h2>
-								<p className="text-lg text-white mt-2">{item.description}</p>
+						<div className="absolute top-1 left-1/2 transform -translate-x-1/2">
+							<div className="flex flex-col items-center justify-between h-63">
+								<div className="flex items-center justify-center">
+									<Image
+										src="/apple-logo.png"
+										alt="Apple Logo"
+										width={274}
+										height={496}
+										className="w-auto h-4 object-contain filter invert"
+									/>
+									<h2 className="text-lg font-semibold text-white ">
+										{item.genre}
+									</h2>
+								</div>
+								<div className="flex flex-col justify-center items-center gap-2 mb-5 w-30">
+									<h1 className="text- text-white font-semibold line-clamp-2 text-center">
+										{item.title}
+									</h1>
+									<button className="text-gray-900 bg-white px-2 py-1 rounded-full text-xs">
+										{item.buttonText}
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
