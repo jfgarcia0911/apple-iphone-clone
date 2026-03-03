@@ -1,5 +1,6 @@
 "use client";
 import FeatureGrid from "@/components/FeatureGrid";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import { useState } from "react";
@@ -11,6 +12,7 @@ export default function Home() {
 			<Navbar open={menuOpen} setOpen={setMenuOpen} />
 			{!menuOpen && <Hero />}
 			{!menuOpen && <FeatureGrid />}
+			{!menuOpen && <Footer />}
 		</div>
 	);
 }

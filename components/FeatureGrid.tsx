@@ -279,7 +279,7 @@ export default function FeatureGrid() {
 	};
 
 	return (
-		<div className="relative w-full mb-100 mt-20 ">
+		<div className="relative w-full mt-20 ">
 			<h1 className="py-5 lg:py-10 text-4xl md:text-4xl lg:text-6xl font-semibold text-center">
 				Endless entertainment.
 			</h1>

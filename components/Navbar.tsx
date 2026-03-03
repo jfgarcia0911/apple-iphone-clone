@@ -49,12 +49,12 @@ export default function Navbar({ open, setOpen }: NavbarProps) {
 						exit={{ opacity: 0, scaleY: 0 }}
 						transition={{ duration: 1, ease: "easeInOut" }}
 						style={{ transformOrigin: "top" }}
-						className="absolute -top-10 left-0 z-49 w-full bg-gray-100 py-2.5 px-4 lg:hidden h-screen overflow-y-scroll"
+						className="absolute -top-10 left-0 z-49 w-full bg-gray-100 py-2.5 px-4  lg:hidden h-screen overflow-y-scroll"
 					>
 						{/* Close button row */}
 						<div className="flex ">
 							<div
-								className="block lg:hidden cursor-pointer ml-auto mr-"
+								className="block lg:hidden cursor-pointer ml-auto "
 								onClick={() => setOpen(false)}
 							>
 								<NavbarIcon
@@ -85,7 +85,7 @@ export default function Navbar({ open, setOpen }: NavbarProps) {
 
 			{/* Navigation Items */}
 			<div className="fixed top-0 left-0 text-gray-800 z-48 bg-gray-100/90 w-full py-2.5">
-				<div className="flex items-center justify-between lg:justify-center gap-6  px-4">
+				<div className="flex items-center justify-between lg:justify-center gap-6 w-245 mx-auto  ">
 					<NavbarIcon src="/apple-logo.png" alt="Apple Logo" />
 					<div className="items-center justify-center gap-6 hidden lg:flex text-sm">
 						{navItems.map((item) => (
