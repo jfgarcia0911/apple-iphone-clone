@@ -89,7 +89,7 @@ const items = [
 const miniItems = [
 	{
 		id: 1,
-		image: "/image1.png",
+		image: "/miniImage1.jpg",
 		mobileMiniImage: "/mobileMiniImage1.jpg",
 		title: "Hello Kitty Island Adventure",
 		genre: "Arcade",
@@ -99,7 +99,7 @@ const miniItems = [
 	},
 	{
 		id: 2,
-		image: "/image2.png",
+		image: "/miniImage2.jpg",
 		mobileMiniImage: "/miniImage2.jpg",
 		title: "Sabrina Carpenter: The Zane Lowe Interview",
 		genre: "Music",
@@ -109,7 +109,7 @@ const miniItems = [
 	},
 	{
 		id: 3,
-		image: "/image3.png",
+		image: "/miniImage3.jpg",
 		mobileMiniImage: "/mobileMiniImage3.jpg",
 		title: "Bad Bunny+",
 		genre: "Fitness+",
@@ -119,7 +119,7 @@ const miniItems = [
 	},
 	{
 		id: 4,
-		image: "/image4.png",
+		image: "/miniImage4.jpg",
 		mobileMiniImage: "/mobileMiniImage4.jpg",
 		title: "PowerWash Simulator",
 		genre: "Arcade",
@@ -129,7 +129,7 @@ const miniItems = [
 	},
 	{
 		id: 5,
-		image: "/image5.png",
+		image: "/miniImage5.jpg",
 		mobileMiniImage: "/miniImage5.jpg",
 		title: "A-List Pop",
 		genre: "Music",
@@ -139,7 +139,7 @@ const miniItems = [
 	},
 	{
 		id: 6,
-		image: "/image6.png",
+		image: "/miniImage6.jpg",
 		mobileMiniImage: "/mobileMiniImage6.jpg",
 		title: "Core with Gregg+",
 		genre: "Fitness+",
@@ -149,7 +149,7 @@ const miniItems = [
 	},
 	{
 		id: 7,
-		image: "/image7.png",
+		image: "/miniImage7.jpg",
 		mobileMiniImage: "/mobileMiniImage7.jpg",
 		title: "SpongeBob: Party Pursuit 2",
 		genre: "Arcade",
@@ -159,7 +159,7 @@ const miniItems = [
 	},
 	{
 		id: 8,
-		image: "/image8.png",
+		image: "/miniImage8.jpg",
 		mobileMiniImage: "/mobileMiniImage8.jpg",
 		title: "Black History Month",
 		genre: "Fitness+",
@@ -362,22 +362,86 @@ export default function FeatureGrid() {
 				{miniDuplicatedItems.map((item, idx) => (
 					<div
 						key={`${item.id}-${idx}`}
-						className={`relative shrink-0 snap-center  ${item.mobileMiniImage.includes("miniImage5.jpg")? "bg-pink-500/80" : "bg-black"}`}
-						style={{ width: "190px" }}
+						className={`relative shrink-0 snap-center w-48 lg:w-105 lg:h-58 ${item.mobileMiniImage.includes("miniImage5.jpg") ? "bg-pink-500/80" : "bg-black"}`}
 					>
+						<Image
+							src={item.image}
+							alt={item.alt}
+							width={516}
+							height={234}
+							className={`h-58   hidden lg:block ${
+								item.mobileMiniImage.includes("miniImage2.jpg") ||
+								item.mobileMiniImage.includes("miniImage5.jpg")
+									? "scale-80 rounded-xl object-contain -ml-25"
+									: "scale-100 object-cover"
+							} `}
+						/>
+
 						<Image
 							src={item.mobileMiniImage}
 							alt={item.alt}
-							width={688}
-							height={368}
-							className={` w-full object-cover  ${
+							width={288}
+							height={254}
+							className={`h-63   block lg:hidden ${
 								item.mobileMiniImage.includes("miniImage2.jpg") ||
 								item.mobileMiniImage.includes("miniImage5.jpg")
-									? "scale-60 rounded-xl"
-									: "h-63"
+									? "scale-70 rounded-xl  object-contain pb-20"
+									: "scale-100  object-cover"
 							} `}
 						/>
-						<div className="absolute top-1 left-1/2 transform -translate-x-1/2">
+						{/* Desktop content */}
+						<div className="absolute top-0 left-0 w-full hidden lg:block">
+							{item.mobileMiniImage.includes("miniImage2.jpg") ||
+							item.mobileMiniImage.includes("miniImage5.jpg") ? (
+								<div className="flex flex-col justify-between h-58 pr-3 pb-4 pt-2">
+									<div className="flex items-center  justify-end ">
+										<Image
+											src="/apple-logo.png"
+											alt="Apple Logo"
+											width={274}
+											height={496}
+											className="w-auto h-4 object-contain filter invert"
+										/>
+										<h2 className="text-lg font-semibold text-white ">
+											{item.genre}
+										</h2>
+									</div>
+									<div className="flex justify-end">
+										<h1 className="leading-tight text-white font-semibold line-clamp-2 w-45 ">
+											{item.title}
+										</h1>
+									</div>
+									<button className="text-gray-900 bg-white px-4 py-1 rounded-full ml-auto">
+										{item.buttonText}
+									</button>
+								</div>
+							) : (
+								<div className="flex flex-col  justify-between p-3  h-58">
+									<div className="flex items-center justify-end">
+										<Image
+											src="/apple-logo.png"
+											alt="Apple Logo"
+											width={274}
+											height={496}
+											className="w-auto h-4 object-contain filter invert"
+										/>
+										<h2 className="text-lg font-semibold text-white ">
+											{item.genre}
+										</h2>
+									</div>
+									<div className="flex justify-between items-center gap-2  w-full">
+										<h1 className="leading-tight text-white font-semibold line-clamp-2 text-center">
+											{item.title}
+										</h1>
+										<button className="text-gray-900 bg-white px-4 py-1 rounded-full ">
+											{item.buttonText}
+										</button>
+									</div>
+								</div>
+							)}
+						</div>
+						{/* Mobile content */}
+						<div className="absolute top-1 left-1/2 transform -translate-x-1/2 block lg:hidden">
 							<div className="flex flex-col items-center justify-between h-63">
 								<div className="flex items-center justify-center">
 									<Image
@@ -391,8 +455,8 @@ export default function FeatureGrid() {
 										{item.genre}
 									</h2>
 								</div>
-								<div className="flex flex-col justify-center items-center gap-2 mb-5 w-30">
-									<h1 className="text- text-white font-semibold line-clamp-2 text-center">
+								<div className="flex flex-col justify-center items-center gap-2 mb-5 w-35">
+									<h1 className="leading-tight text-white font-semibold line-clamp-2 text-center">
 										{item.title}
 									</h1>
 									<button className="text-gray-900 bg-white px-2 py-1 rounded-full text-xs">
