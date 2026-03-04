@@ -167,6 +167,16 @@ const miniItems = [
 		alt: "Black History Month",
 		buttonText: "Watch now",
 	},
+	{
+		id: 9,
+		image: "/miniImage6.jpg",
+		mobileMiniImage: "/mobileMiniImage6.jpg",
+		title: "Core with Gregg+",
+		genre: "Fitness+",
+		description: "",
+		alt: "Core with Gregg",
+		buttonText: "Watch now",
+	}
 ];
 
 type ScrollBehavior = "auto" | "smooth";
@@ -279,7 +289,7 @@ export default function FeatureGrid() {
 	};
 
 	return (
-		<div className="relative w-full mt-20 ">
+		<div className="relative w-full bg-gray-100">
 			<h1 className="py-5 lg:py-10 text-4xl md:text-4xl lg:text-6xl font-semibold text-center">
 				Endless entertainment.
 			</h1>
@@ -470,12 +480,12 @@ export default function FeatureGrid() {
 			</div>
 
 			{/* Dot indicators with integrated progress bar */}
-			<div className="flex justify-center gap-2 mt-8">
+			<div className="flex justify-center gap-2 mt-8 ">
 				{items.map((_, index) => (
 					<button
 						key={index}
 						onClick={() => goToSlide(index)}
-						className="relative w-12 h-1.5 bg-gray-500 rounded-full overflow-hidden focus:outline-none"
+						className="relative w-12 h-1.5 bg-gray-500 rounded-full overflow-hidden focus:outline-none hover:bg-gray-400 hover:scale-105 transition-transform cursor-pointer"
 						aria-label={`Go to slide ${index + 1}`}
 					>
 						{/* White progress fill – only shown for the active dot */}
