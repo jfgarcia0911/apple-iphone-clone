@@ -26,6 +26,8 @@ const navItems = [
 ];
 
 export default function Navbar({ open, setOpen }: NavbarProps) {
+	const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+
 	// Close menu when screen size is >= lg
 	useEffect(() => {
 		const handleResize = () => {
@@ -67,9 +69,9 @@ export default function Navbar({ open, setOpen }: NavbarProps) {
 
 						{/* Navigation Items */}
 						<div className="flex flex-col   gap-4 py-4">
-							{navItems.map((item) => (
+							{navItems.map((item, index) => (
 								<div
-									key={item}
+									key={index}
 									className="cursor-pointer hover:text-gray-900 text-gray-800 text-3xl font-semibold ml-8 flex items-center justify-between group"
 								>
 									{item}
@@ -85,13 +87,39 @@ export default function Navbar({ open, setOpen }: NavbarProps) {
 
 			{/* Navigation Items */}
 			<div className="fixed top-0 left-0 text-gray-800 z-48 bg-gray-100/90 w-full py-2.5">
-				<div className="flex items-center justify-between lg:justify-center gap-6 w-245 mx-auto  ">
+				<div className="flex items-center justify-between lg:justify-center gap-6 px-4 max-w-full  ">
 					<NavbarIcon src="/apple-logo.png" alt="Apple Logo" />
 					<div className="items-center justify-center gap-6 hidden lg:flex text-sm">
 						{navItems.map((item) => (
-							<div key={item} className="cursor-pointer hover:text-gray-900">
-								{item}{" "}
-							</div>
+							<nav
+								key={item}
+								className=" "
+								onMouseEnter={() => setHoveredItem(item)}
+								onMouseLeave={() => setHoveredItem(null)}
+							>
+								<a className="hover:text-gray-900 cursor-pointer">{item}</a>
+
+								<AnimatePresence>
+									{hoveredItem !== item && (
+										<motion.div
+											initial={{ opacity: 0, scaleY: 0 }}
+											animate={{ opacity: 1, scaleY: 1 }}
+											exit={{ opacity: 0, scaleY: 0 }}
+											transition={{ duration: 0.3, ease: "easeInOut" }}
+											style={{ transformOrigin: "top" }}
+											className="absolute top-10 left-0 w-screen bg-gray-100"
+										>
+											<div className="w-4xl flex flex-col justify-start mx-auto mt-10">
+                        <h1>Shop</h1>
+                        <div className="mt-3 text-3xl font-bold leading-tight">
+                          <h2>Shop the latest</h2>
+                          <h2>Shop the latest</h2>
+                        </div>
+                      </div>
+										</motion.div>
+									)}
+								</AnimatePresence>
+							</nav>
 						))}
 					</div>
 					<div className="flex  items-center justify-center gap-6 ">
