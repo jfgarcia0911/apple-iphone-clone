@@ -402,7 +402,7 @@ export default function Navbar({ open, setOpen }: NavbarProps) {
 									key={index}
 									className="cursor-pointer hover:text-gray-900 text-gray-800 text-3xl font-semibold ml-8 flex items-center justify-between group"
 								>
-									{item}
+									{item.nav}
 									<div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out ">
 										<NavbarIcon src="/chevron.png" alt="Close Logo" />
 									</div>
@@ -423,7 +423,7 @@ export default function Navbar({ open, setOpen }: NavbarProps) {
 								key={index}
 								className=" "
 								onMouseEnter={() => setHoveredItem(item.nav)}
-								onMouseLeave={() => setHoveredItem(null)}
+								// onMouseLeave={() => setHoveredItem(null)}
 							>
 								<a className="hover:text-gray-900 cursor-pointer">{item.nav}</a>
 
