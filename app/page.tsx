@@ -1,9 +1,9 @@
 "use client";
 import FeatureGrid from "@/components/FeatureGrid";
-import Footer from "@/components/Footer";
+import Footer from "@/layout/Footer";
 import Hero from "@/components/Hero";
-import Navbar from "@/components/Navbar";
-import { useState } from "react";
+import Navbar from "@/layout/Navbar";
+import { useState } from "react"; 
 
 export default function Home() {
 	const [menuOpen, setMenuOpen] = useState(false);
