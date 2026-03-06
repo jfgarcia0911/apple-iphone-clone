@@ -1,7 +1,17 @@
 // tailwind.config.js
 module.exports = {
   theme: {
-    extend: {},
+    extend: {fontFamily: {
+        sans: [
+          'SF Pro Text',
+          'SF Pro Icons',
+          'Helvetica Neue',
+          'Helvetica',
+          'Arial',
+          'sans-serif',
+        ],
+      },
+},
     screens: {
       'xs': '480px',   // custom extra small
       'sm': '640px',
