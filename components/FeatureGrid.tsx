@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import { title } from "process";
 import { useEffect, useRef, useState } from "react";
 
 const items = [

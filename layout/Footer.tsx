@@ -2,9 +2,9 @@ import React from "react";
 
 export default function Footer() {
 	return (
-		<footer className="pt-10 px-4 max-w-full text-sm bg-gray-100">
-			<div className="w-full lg:w-4xl border-gray-400 px-40 border mx-auto"></div>
-			<div className="lg:w-4xl mx-auto py-5  text-gray-500">
+		<footer className="pt-10 px-4 max-w-full text-sm bg-gray-100 flex flex-col items-center ">
+			<div className="w-full lg:w-245 border-gray-400  border "></div>
+			<div className="w-full lg:w-245 py-5  text-gray-500">
 				<div className="grid  grid-cols-2 lg:grid-cols-12 items-center">
 					<p className="col-span-2 md:col-span-1 lg:col-span-4 order-2 md:order-1  text-left mt-3 md:mt-0">© 2026 John Francis. All rights reserved.</p>
 					<nav className="col-span-2 order-last lg:col-span-7 mr-auto flex gap-2  items-center">

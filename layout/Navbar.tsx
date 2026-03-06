@@ -1,12 +1,9 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
-import NavbarIcon from "./NavbarIcon";
+import NavbarIcon from "../components/NavbarIcon";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { div } from "framer-motion/client";
 
 type NavbarProps = {
 	open: boolean;
@@ -16,11 +13,12 @@ type NavbarProps = {
 const navItems = [
 	{
 		nav: "Store",
+    href: "/store",
 		sections: [
 			{
 				title: "Shop",
 				links: [
-					{ label: "Shop the Latest", href: "/Shop the Latest", text: "" },
+					{ label: "Shop the Latest", href: "/Shop", text: "" },
 					{ label: "Mac", href: "/Mac", text: "" },
 					{ label: "iPad", href: "/iPad", text: "" },
 					{ label: "iPhone", href: "/iPad", text: "" },
@@ -48,6 +46,7 @@ const navItems = [
 	},
 	{
 		nav: "Mac",
+    href: "/mac",
 		sections: [
 			{
 				title: "Explore Mac",
@@ -85,6 +84,7 @@ const navItems = [
 	},
 	{
 		nav: "iPad",
+    href: "/ipad",
 		sections: [
 			{
 				title: "Explore iPad",
@@ -117,6 +117,7 @@ const navItems = [
 	},
 	{
 		nav: "iPhone",
+    href: "/iphone",
 		sections: [
 			{
 				title: "Explore iPhone",
@@ -149,6 +150,7 @@ const navItems = [
 	},
 	{
 		nav: "Watch",
+    href: "/watch",
 		sections: [
 			{
 				title: "Explore Watch",
@@ -182,6 +184,7 @@ const navItems = [
 	},
 	{
 		nav: "Vision",
+    href: "/vision",
 		sections: [
 			{
 				title: "Explore Vision",
@@ -209,6 +212,7 @@ const navItems = [
 	},
 	{
 		nav: "Airpods",
+    href: "/airpods",
 		sections: [
 			{
 				title: "Explore Airpods",
@@ -238,6 +242,7 @@ const navItems = [
 	},
 	{
 		nav: "TV & Home",
+    href: "/tv-home",
 		sections: [
 			{
 				title: "Explore Vision",
@@ -265,6 +270,7 @@ const navItems = [
 	},
 	{
 		nav: "Entertainment",
+    href: "/services",
 		sections: [
 			{
 				title: "Explore Vision",
@@ -292,6 +298,7 @@ const navItems = [
 	},
 	{
 		nav: "Accessories",
+    href: "/shop/accessores/all",
 		sections: [
 			{
 				title: "Explore Vision",
@@ -319,6 +326,7 @@ const navItems = [
 	},
 	{
 		nav: "Support",
+    href: "/support",
 		sections: [
 			{
 				title: "Explore Support",
@@ -402,7 +410,7 @@ export default function Navbar({ open, setOpen }: NavbarProps) {
 									key={index}
 									className="cursor-pointer hover:text-gray-900 text-gray-800 text-3xl font-semibold ml-8 flex items-center justify-between group"
 								>
-									{item.nav}
+									<Link href={item.href}>{item.nav}</Link>
 									<div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out ">
 										<NavbarIcon src="/chevron.png" alt="Close Logo" />
 									</div>
@@ -415,9 +423,10 @@ export default function Navbar({ open, setOpen }: NavbarProps) {
 
 			{/* Navigation Items */}
 			<div className="fixed top-0 left-0 text-gray-800 z-48 bg-gray-100/90 w-full py-2.5">
-				<div className="flex items-center justify-between lg:justify-center gap-6 px-4 max-w-full  ">
-					<NavbarIcon src="/apple-logo.png" alt="Apple Logo" />
-					<div className="items-center justify-center gap-6 hidden lg:flex text-sm">
+				<div className="flex items-center justify-between lg:justify-center  px-4 max-w-full  ">
+					
+          <Link href="/" ><NavbarIcon src="/apple-logo.png" alt="Apple Logo" /></Link>
+					<div className="items-center justify-evenly w-225 hidden lg:flex text-sm">
 						{navItems.map((item, index) => (
 							<nav
 								key={index}
@@ -425,7 +434,7 @@ export default function Navbar({ open, setOpen }: NavbarProps) {
 								onMouseEnter={() => setHoveredItem(item.nav)}
 								// onMouseLeave={() => setHoveredItem(null)}
 							>
-								<a className="hover:text-gray-900 cursor-pointer">{item.nav}</a>
+								<Link href={item.href} className="hover:text-gray-900 cursor-pointer">{item.nav}</Link>
 
 								<AnimatePresence>
 									{hoveredItem === item.nav && (
